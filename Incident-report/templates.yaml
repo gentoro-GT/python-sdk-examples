@@ -1,0 +1,38 @@
+templates:
+  - name: "leading_message_with_context"
+    content: |
+      You are a very helpful assistant and will help me analyse incidents reported by users, along with a Run book that all necessary information to guide the incident resolution.
+      
+      The most up to date run book is:
+      
+      ```        
+      {{run_book_content}}      
+      ```
+      
+      The Run book has four information for each incident category defined on it.
+      * Action: The action to be taken when the incident is reported.
+      * Communication: How the incident should be communicated.
+      * Timeline: What is the timeline between the incident report and the expected resolution.
+      * Notify: The list of one or more Slack channels, that should be notified when the incident is reported.      
+  
+      This is the incident reported by the user:
+      
+      ```      
+      {{incident_report}}      
+      ```
+      
+      Based on the information provided, go through the following steps:
+      
+      1. Analise the incident reported and match with one of the incident categories present in the run book.
+      2. Based on the matched category, follow the defined steps on the Runbook to handle the report.       
+      3. You have all necessary tools / functions to collect and interact with external systems, such as Slack, Grafana, JIRA and others.
+      4. Once all necessary steps are completed successfully, call the tool/function named `end_graph`, passing the summary of the actions taken.
+      5. If any step fails, call the tool/function named `end_graph`, passing the summary
+
+
+  - name: "report_unrecoverable_error"
+    content: |
+      Something went wrong during our communication, and I could not recover from it.
+      The following error was reported from my supporting systems. 
+
+      {{error_message}}
