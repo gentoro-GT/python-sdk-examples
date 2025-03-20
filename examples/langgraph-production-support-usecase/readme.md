@@ -28,6 +28,7 @@ Create a `.env` file with the following variables:
 ```env
 GENTORO_BRIDGE_UID=<your_gentoro_bridge_uid>
 OPENAI_API_KEY=<your_openai_api_key>
+GENTORO_API_KEY=<your_gentoro_api_key>
 ```
 
 ## How It Works
